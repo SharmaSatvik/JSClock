@@ -47,14 +47,14 @@
     var h = d.getHours();
     var m = d.getMinutes();
     var s = d.getSeconds();
-    var session = "AM"
+    var session = "PM"
     var pp = h;
     //12hrs system
     if(h > 12){
         h = h - 12;
     }
     if(pp>=12){
-        session = "PM";
+        session = "AM";
     }
     //Adding 0 behind the numbers
     h = h < 10 ? '0'+h : h;
