@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin: 50px;
+            padding: 50px;
+            font-family: 'Orbitron', sans-serif;
+            background-color: black;
+        }
+        h1{
+            text-align: center;
+            font-size: 3em;
+            color: #fff;
+            margin-top: -50px;
+        }
+        p{
+            text-align: center;
+            font-size: 5em;
+            margin-top: 300px;
+            color:#d5ffd5;
+            text-shadow: 0px 0px 20px #98ff98;
+            position: relative;
+        }
+        p::before{
+            content: ' ';
+            position: absolute;
+            text-shadow: 0px 0px 20px #98ff98;
+            top: 10px
+        }
+    </style>
+</head>
+<body onload="showTime()">  <!--Calling function-->
+    <h1>Clock</h1>
+    <p id="times"></p>
+</body>
+<script>
+    function showTime(){
+    var d = new Date();
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+    var session = "AM"
+    //12hrs system
+    if(h > 12){
+        h = h - 12;
+    }
+    if(h>=12){
+        session = "PM";
+    }
+    //Adding 0 behind the numbers
+    h = h < 10 ? '0'+h : h;
+    m = m < 10 ? '0'+m : m;
+    s = s < 10 ? '0'+s : s;
+    var time = h + " : "+m+" : "+s+" "+session;
+    document.getElementById('times').innerText = time;
+    setTimeout(showTime, 1000); //1000ms = 1sec
+    }
+</script>
+</html>
