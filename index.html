@@ -48,11 +48,12 @@
     var m = d.getMinutes();
     var s = d.getSeconds();
     var session = "AM"
+    var pp = h;
     //12hrs system
     if(h > 12){
         h = h - 12;
     }
-    if(h>=12){
+    if(pp>=12){
         session = "PM";
     }
     //Adding 0 behind the numbers
